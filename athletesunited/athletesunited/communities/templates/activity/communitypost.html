@@ -1,0 +1,67 @@
+
+{% load comments %}
+
+<dl id="posts">
+    
+    {% if request.user == activity.actor %}
+    
+    <br>
+    <div id="p{{ activity.object.id }}">
+        <dt>
+            <a href="{% url 'athletes-views-AthletePage' activity.actor.athlete.slug %}">{{ activity.actor.first_name }} {{ activity.actor.last_name }}</a> | {{ activity.actor.athlete.headline }} | <a href="{{ activity.actor.athlete.web_url }}" target="_blank">{{ activity.actor.athlete.web_url }}</a> | <a id="deletePost" postidreq="{{ activity.object.id }}" href="">Delete</a> {% if DEBUG == True %} | <a href="{% url 'main.views.ReportCommunityPostSpam' activity.object.id %}">Mark As Spam</a> {% endif %}
+            <br>
+            {{ activity.time|timesince }}
+        </dt>
+        <dd>
+            <p>{{ activity.object.body }}</p>
+        </dd>
+        {% if activity.object.verified_users.all.count > 0 %}
+        <a id="showAllComments" postid="{{ activity.object.id }}" href="">All</a> | Verified:
+        {% for user in activity.object.verified_users.all %}
+        <a id="showVerifiedUserComments" postid="{{ activity.object.id }}" verifiedathleteslug="{{ user.athlete.slug }}" href="">{{ user.first_name }} {{ user.last_name }}</a> |
+        {% endfor %}
+        {% else %}
+        {% endif %}
+        <div class="comments" style="margin-left: 30px;">
+            <!-- Render the comments for the post now -->
+            {% get_comment_count for activity.object as comment_count %}
+            {% render_comment_list for activity.object %}
+            <!-- Render the comment form under Community Post stream itself -->
+            {% render_comment_form for activity.object %}
+        </div>
+    </div>
+    
+    {% else %}
+    
+    <br>
+    <div id="p{{ activity.object.id }}">
+        <dt>
+            <a href="{% url 'athletes-views-AthletePage' activity.actor.athlete.slug %}">{{ activity.actor.first_name }} {{ activity.actor.last_name }}</a> | {{ activity.actor.athlete.headline }} | <a href="{{ activity.actor.athlete.web_url }}" target="_blank">{{ activity.actor.athlete.web_url }}</a> {% if DEBUG == True %} | <a href="{% url 'main.views.ReportCommunityPostSpam' activity.object.id %}">Mark As Spam</a> {% endif %}
+            <br>
+            {{ activity.time|timesince }}
+        </dt>
+        <dd>
+            <p>{{ activity.object.body }}</p>
+        </dd>
+        {% if activity.object.verified_users.all.count > 0 %}
+        <a id="showAllComments" postid="{{ activity.object.id }}" href="">All</a> | Verified:
+        {% for user in activity.object.verified_users.all %}
+        <a id="showVerifiedUserComments" postid="{{ activity.object.id }}" verifiedathleteslug="{{ user.athlete.slug }}" href="">{{ user.first_name }} {{ user.last_name }}</a> |
+        {% endfor %}
+        {% else %}
+        {% endif %}
+        <div class="comments" style="margin-left: 30px;">
+            <!-- Render the comments for the post now -->
+            {% get_comment_count for activity.object as comment_count %}
+            {% render_comment_list for activity.object %}
+            <!-- Render the comment form under Community Post stream itself -->
+            {% render_comment_form for activity.object %}
+        </div>
+    </div>
+    
+    {% endif %}
+    
+</dl>
+
+
+

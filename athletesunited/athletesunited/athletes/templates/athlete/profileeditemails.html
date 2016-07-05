@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    Edit Existing Emails:
+                    
+                    <br><br>
+                    
+                    <form method="post" action="">{% csrf_token %}
+                        
+                        {% for field in AthleteProfileEditUpdateEmailForm %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.help_text }}
+                        {{ field.error }}
+                        <br>
+                        {% endfor %}
+
+                        <input type="submit" alt="post" name="update_emails" value="Update" />
+                    </form>
+                    
+                    <br>
+                    
+                    Add a new Email:
+                    
+                    <br><br>
+                    
+                    <form method="post" action="">{% csrf_token %}
+                        
+                        {% for field in AthleteProfileEditAddEmailForm %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.help_text }}
+                        {{ field.error }}
+                        <br>
+                        {% endfor %}
+                        
+                        <input type="submit" alt="post" name="add_email" value="Submit" />
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+

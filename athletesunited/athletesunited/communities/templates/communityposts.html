@@ -1,0 +1,97 @@
+
+{% load comments %}
+
+{% if CommunityPosts %}
+
+<dl id="posts">
+    
+    {% for CommunityPost in CommunityPosts %}
+    
+    {% if request.user == CommunityPost.user %}
+    
+    <br>
+    <div id="p{{ CommunityPost.id }}">
+        <dt>
+            <a href="{% url 'athletes.views.AthletePage' CommunityPost.user.athlete.slug %}">{{ CommunityPost.user.first_name }} {{ CommunityPost.user.last_name }}</a> | {{ CommunityPost.user.athlete.headline }} | <a href="{{ CommunityPost.user.athlete.web_url }}" target="_blank">{{ CommunityPost.user.athlete.web_url }}</a> | <a id="deletePost" postidreq="{{ CommunityPost.id }}" href="">Delete</a> {% if DEBUG == True %} | <a href="{% url 'main.views.ReportCommunityPostSpam' CommunityPost.id %}">Mark As Spam</a> {% endif %}
+            <br>
+            {{ CommunityPost.created_at|timesince }}
+        </dt>
+        <dd>
+            <p>{{ CommunityPost.body }}</p>
+        </dd>
+        {% if CommunityPost.verified_users.all.count > 0 %}
+        <a id="showAllComments" postid="{{ CommunityPost.id }}" href="">All</a> | Verified:
+        {% for user in CommunityPost.verified_users.all %}
+        <a id="showVerifiedUserComments" postid="{{ CommunityPost.id }}" verifiedathleteslug="{{ user.athlete.slug }}" href="">{{ user.first_name }} {{ user.last_name }}</a> |
+        {% endfor %}
+        {% else %}
+        {% endif %}
+        <div class="comments" style="margin-left: 30px;">
+            <!-- Render the comments for the post now -->
+            {% get_comment_count for CommunityPost as comment_count %}
+            {% render_comment_list for CommunityPost %}
+            <!-- Render the comment form under Community Post stream itself -->
+            {% render_comment_form for CommunityPost %}
+        </div>
+    </div>
+    
+    {% else %}
+    
+    <br>
+    <div id="p{{ CommunityPost.id }}">
+        <dt>
+            <a href="{% url 'athletes.views.AthletePage' CommunityPost.user.athlete.slug %}">{{ CommunityPost.user.first_name }} {{ CommunityPost.user.last_name }}</a> | {{ CommunityPost.user.athlete.headline }} | <a href="{{ CommunityPost.user.athlete.web_url }}" target="_blank">{{ CommunityPost.user.athlete.web_url }}</a> {% if DEBUG == True %} | <a href="{% url 'main.views.ReportCommunityPostSpam' CommunityPost.id %}">Mark As Spam</a> {% endif %}
+            <br>
+            {{ CommunityPost.created_at|timesince }}
+        </dt>
+        <dd>
+            <p>{{ CommunityPost.body }}</p>
+        </dd>
+        {% if CommunityPost.verified_users.all.count > 0 %}
+        <a id="showAllComments" postid="{{ CommunityPost.id }}" href="">All</a> | Verified:
+        {% for user in CommunityPost.verified_users.all %}
+        <a id="showVerifiedUserComments" postid="{{ CommunityPost.id }}" verifiedathleteslug="{{ user.athlete.slug }}" href="">{{ user.first_name }} {{ user.last_name }}</a> |
+        {% endfor %}
+        {% else %}
+        {% endif %}
+        <div class="comments" style="margin-left: 30px;">
+            <!-- Render the comments for the post now -->
+            {% get_comment_count for CommunityPost as comment_count %}
+            {% render_comment_list for CommunityPost %}
+            <!-- Render the comment form under Community Post stream itself -->
+            {% render_comment_form for CommunityPost %}
+        </div>
+    </div>
+    
+    {% endif %}
+    
+    {% endfor %}
+</dl>
+
+{% else %}
+    {{ CommunityPostsError }}
+{% endif %}
+
+<br>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if CommunityPosts.has_previous %}
+        <a href="?page={{ CommunityPosts.previous_page_number }}">Previous</a>
+        {% endif %}
+        
+        <span class="current">
+            Page {{ CommunityPosts.number }} of {{ CommunityPosts.paginator.num_pages }}.
+        </span>
+        
+        {% if CommunityPosts.has_next %}
+        <a href="?page={{ CommunityPosts.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
+
+
+
+
+
+

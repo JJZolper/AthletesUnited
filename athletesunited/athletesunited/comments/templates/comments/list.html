@@ -1,0 +1,36 @@
+<dl id="comments-{{ CommunityPost.id }}{{ postid }}{{ activity.object.id }}">
+
+    {% for comment in comment_list %}
+    
+        {% if request.user == comment.user %}
+        
+            <div id="c{{ comment.id }}">
+                <dt>
+                    <a href="/athletes/{{ comment.url }}">{{ comment.name }}</a> | {{ comment.user.athlete.headline }} | <a href="{{ comment.user.athlete.weburl }}" target="_blank">{{ comment.user.athlete.weburl }}</a> | <a id="deleteComment" commentidreq="{{ comment.id }}" href="">Delete</a>
+                    <br>
+                    {{ comment.submit_date|timesince }}
+                </dt>
+                <dd>
+                    <p>{{ comment.comment }}</p>
+                </dd>
+            </div>
+            
+        {% else %}
+
+            <div id="c{{ comment.id }}">
+                <dt>
+                    <a href="/athletes/{{ comment.url }}">{{ comment.name }}</a> | {{ comment.user.athlete.headline }} | <a href="{{ comment.user.athlete.weburl }}" target="_blank">{{ comment.user.athlete.weburl }}</a>
+                    <br>
+                    {{ comment.submit_date|timesince }}
+                </dt>
+                <dd>
+                    <p>{{ comment.comment }}</p>
+                </dd>
+            </div>
+
+        {% endif %}
+
+    {% endfor %}
+</dl>
+
+

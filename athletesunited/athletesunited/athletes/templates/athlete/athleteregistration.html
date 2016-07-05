@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                {% if CanRegister == True %}
+                    
+                    Before you sign up, please know that we take spam very seriously.
+                    
+                    <br><br>
+                        
+                    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                        {% for field in form %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.help_text }}
+                        {{ field.errors.as_text }}
+                        <p>
+                        {% endfor %}
+                        
+                        {{ form.errors }}
+
+                    <input type="submit" alt="register" value="Submit" />
+                    </form>
+                
+                {% else %}
+                
+                    Our apologies, we currently do not offer registration for those outside the United States.
+
+                {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,10 @@
+{% load comments %}
+<br>
+{{ activity.actor.athlete.slug }} said "{{ activity.object.body }}" {{ activity.time|timesince }} ago {{ activity.to }}, {{ activity.actor.first_name }} {{ activity.actor.last_name }}
+{% get_comment_count for activity.object as comment_count %}
+{% render_comment_list for activity.object %}
+<!-- Render the comment form under Community Post stream activity itself -->
+{% render_comment_form for activity.object %}
+
+
+

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    This Athlete has the following email accounts linked:
+                    <br><br>
+                    <ul>
+                        {% for AthleteEmail in AthleteEmails %}
+                        <li>Email: {{ AthleteEmail }}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <br>
+                    
+                    Manage your <a href="/profile/edit/emails">emails</a>.
+                    
+                    <br><br>
+                    
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                        {% if language.code == SelectedLanguageCode %}Your currently selected language is: {{ language.name_local }}{% endif %}
+                    {% endfor %}
+                    
+                    <br><br>
+                    
+                    Set My Language:
+                    
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="/profile/edit/setlanguage/success/" />
+                        <select name="language">
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                            <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                {{ language.name_local }} <!-- ({{ language.code }}) -->
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" value="Go" />
+                    </form>
+
+                    <br>
+
+                    <form action="" method="post" enctype='multipart/form-data'>{% csrf_token %}
+
+                        {% for field in UserProfileUpdateForm %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.help_text }}
+                        {{ field.error }}
+                        <p>
+                        {% endfor %}
+                    
+                        <br>
+                        Change your <a href="/password/change">password</a>.
+                        <br><br>
+                        
+                        Your current location is set to: {{ SelectedAthleteLocation }}
+                        
+                        <br><br>
+                        
+                        Set your <a href="/profile/edit/setlocation/success/">location</a>.
+                        
+                        <br><br>
+
+                        {% for field in AthleteProfileUpdateForm %}
+                        {{ field.label }}
+                        {{ field }}
+                        {{ field.help_text }}
+                        {{ field.error }}
+                        <p>
+                        {% endfor %}
+                        <br>
+                        
+                    <input type="submit" alt="post" value="Update" />
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+

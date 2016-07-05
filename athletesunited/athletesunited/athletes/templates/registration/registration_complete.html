@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block extrahead %}
+
+{% endblock %}
+{% block title %}Athletes United | The World's Community of Athletes{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    <!-- Success -->
+                    {% trans "Success! You are now registered. Your account activation email has been sent." %}
+                    <br><br>
+                    {% trans "Please go to your e-mail and click the activation link." %}
+                    <br><br>
+                    {% trans "Then you may begin interacting with Athletes United." %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

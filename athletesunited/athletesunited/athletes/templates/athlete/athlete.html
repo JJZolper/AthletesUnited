@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    {% if Athlete %}
+                    
+                        {% if request.user != Athlete.user %}
+                        
+                        <form action="{% if followed %}{% url 'AthleteUnfollow' Athlete.user.id %}{% else %}{% url 'AthleteFollow' %}{% endif %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" id="id_target" name="target" value="{{ Athlete.user.id }}">
+                            <input type="hidden" id="id_user" name="user" value="{{ request.user.id }} ">
+                            <button type="submit" class="btn btn-primary" value="Create" />
+                            {% if followed %}
+                                Unfollow
+                            {% else %}
+                                Follow
+                            {% endif %}
+                            </button> 
+                        </form>
+                        
+                        <br>
+                        
+                        {% else %}
+                        
+                        {% endif %}
+                    
+                        <img src="{{ Athlete.avatar.url }}" style="height: 20%; width: 20%;"><br>
+                        Name: {{ Athlete.user.first_name }} {{ Athlete.user.last_name }}<br>
+                        Headline: {{ Athlete.headline }} <br>
+                        Bio: {{ Athlete.bio }} <br>
+                        Username: {{ Athlete.user.username }}<br>
+                        Birthday: {{ Athlete.birthday }}<br>
+                        Public URL: {{ Athlete.slug }}<br>
+                        
+                    {% else %}
+                        {{ AthleteError }}
+                    {% endif %}
+
+                    <br>
+
+                    {% if AthleteCommunities %}
+
+                        This Athlete is a member of the following communities:
+                        <br><br>
+                        <ul>
+                        {% for AthleteCommunity in AthleteCommunities %}
+                            <li>{{ AthleteCommunity }}</li>
+                        {% endfor %}
+                        </ul>
+
+                    {% else %}
+                        {{ CommunityError }}
+                    {% endif %}
+                    
+                    <br>
+                    
+                    {% if AthleteColleges %}
+                    
+                        This Athlete is a member of the following colleges:
+                        <br><br>
+                        <ul>
+                            {% for AthleteCollege in AthleteColleges %}
+                            <li>{{ AthleteCollege }}</li>
+                            {% endfor %}
+                        </ul>
+                    
+                    {% else %}
+                        {{ CollegeError }}
+                    {% endif %}
+                    
+                    <br>
+                    
+                    This Athlete has the following recent actions:
+                    
+                    <br><br>
+                    
+                    {% load activity_tags %}
+                    
+                    {% for activity in activities %}
+                        {% render_activity activity 'athleteprofile' %}
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+

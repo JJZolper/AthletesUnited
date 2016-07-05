@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    {% if LoginError %}
+                    
+                        {{ LoginError }}
+                        
+                        <br><br>
+                        
+                        <form action="" method="post">{% csrf_token %}
+                            
+                            {% for field in form %}
+                            {{ field.label }}
+                            {{ field }}
+                            {{ field.help_text }}
+                            {{ field.error }}
+                            <p>
+                            {% endfor %}
+                            
+                            <input type="submit" alt="register" />
+                        </form>
+                    
+                    {% else %}
+                    
+                        <form action="" method="post">{% csrf_token %}
+                            
+                            {% for field in form %}
+                            {{ field.label }}
+                            {{ field }}
+                            {{ field.help_text }}
+                            {{ field.error }}
+                            <p>
+                            {% endfor %}
+                            
+                            <input type="submit" alt="register" />
+                        </form>
+                    
+                    {% endif %}
+                    
+                    <br>
+                    
+                    Forgot your password? <a href="/password/reset">Reset your password</a>.
+
+                    <br><br>
+                    
+                    <a href="{% url 'social:begin' 'facebook' %}"><img src="{{ STATIC_URL }}images/social/login_with_facebook_button.png" style="" width="23%"></a>
+                    
+                    <br><br>
+                    
+                    <a href="{% url 'social:begin' 'twitter' %}"><img src="{{ STATIC_URL }}images/social/login_with_twitter_button.png" style="" width="23%"></a>
+                    
+                    <br><br>
+                    
+                    <a href="/register/">Sign up with your email</a> today.
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+

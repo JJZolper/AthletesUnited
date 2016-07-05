@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    The AU team:
+                    
+                    <br><br>
+                    
+                    {% if TeamMembers %}
+                        {% for TeamMember in TeamMembers %}
+                        
+                            Name: <a href="/about/{{ TeamMember.slug }}">{{ TeamMember.name }}</a><br>
+                            Position: {{ TeamMember.position }}
+                            <br><br>
+                    
+                        {% endfor %}
+                    {% else %}
+                        {{ TeamMemberError }}
+                    {% endif %}
+                    
+                    Mission: To further the drive of all persons for greater excellence in fitness and health thereby establishing a focus on the life long benefits.
+                    
+                    <br><br>
+                    
+                    Vision: We envision a future where all people, not just athletes, recognize the value in the development of one’s health.
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+**/__pycache__
+__pycache__/
+*.py[cod]
+*.pyc
+*.pot
+*.egg-info
+migrations/
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+tests/coverage_html/
+tests/.coverage
+build/
+.DS_Store
+/athletesunited/static
+/athletesunited/media

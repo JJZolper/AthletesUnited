@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+    <script src="{{ STATIC_URL }}js/post.js" type="text/javascript" ></script>
+    <script src="{{ STATIC_URL }}js/ajaxcomments.js" type="text/javascript" ></script>
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="main-content">
+            <div class="content-header">
+                <div class="content-inner">
+            
+                    <!-- Community Title & Description -->
+
+                    {% if Community %}
+                    
+                        <center>
+                            {% if SelectedAthlete %}
+                                <a href="{% url 'communities.views.CommunityCityPostPage' Community.slug SelectedAthlete.current_city.slug %}">{{ Community.name }} in {{ SelectedAthlete.current_city.name }}</a>: {{ TotalAthletesInCommunity }} athletes
+                            {% else %}
+                            {% endif %}
+                        </center>
+
+                    {% else %}
+                        {{ CommunityError }} d
+                    {% endif %}
+                    
+                    <!-- Show the Community Post From Here -->
+                    
+                    {% if MakePost == True %}
+                    
+                    <br>
+                    
+                        Post will be tagged as: {{ tags }}
+
+                        <div class="community-post-form">
+                            
+                            <form action="" name="CommunityPostForm" id="CommunityPostForm" method="post">{% csrf_token %}
+                                
+                                {% for hidden in form.hidden_fields %}
+                                {{ hidden }}
+                                {% endfor %}
+                                {% for field in form.visible_fields %}
+                                {{ field.label }}
+                                {{ field }}
+                                {{ field.help_text }}
+                                {{ field.error }}
+                                <p>
+                                {% endfor %}
+                                
+                                <input type="submit" alt="post" value="Post" />
+                            </form>
+                            
+                        </div>
+                    
+                    {% else %}
+                    {% endif %}
+                    
+                    <!-- Show the Community Post From Here -->
+                    
+                    <!-- Show the Community Stream Here (posts and comments) -->
+                    
+                    <div class="new-community-posts" class="new-community-posts">
+                    </div>
+                    
+                    <div class="community-posts" class="community-posts">
+                        
+                        <div class="communityEXT">
+                        
+                            {% include "communityposts.html" %}
+                        
+                        </div>
+                        
+                        <a id="showMorePosts" href="">Show More</a>
+                    
+                    </div>
+                    
+                    <!-- Show the Community Stream Here -->
+                    
+                </div>
+            </div>
+        </div>
+        <div class="side-content">
+            <div class="content-header">
+                <div class="content-inner">
+
+                    Partners of Athletes United
+                    <br>
+                    <br>
+                    
+                    {% if Ads %}
+                    
+                        {% for Ad in Ads %}
+                    
+                            <a href="{{ Ad.web_url }}" title="{{ Ad.title }}" target="_blank"><img src="{{ Ad.image.url }}" style="width: 210px;"></a><br>
+                        
+                        {% endfor %}
+                        
+                    {% else %}
+                        {{ AdsError }}
+                    {% endif %}
+                    
+                </div>
+            </div>
+            <div class="footer-header-side">
+                <div class="footer-inner-side">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+

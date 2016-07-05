@@ -1,0 +1,21 @@
+from django.db import models
+from django.contrib.syndication.views import Feed
+
+
+class Sport(models.Model)
+	name = models.Charfield(max_length=100)
+	description = models.CharField(max_length=100)
+	group = models.Group()
+
+class SportPost(models.Model)
+	usersname = models.CharField(max_length=100)
+	datecreated = models.DateField()
+	body = models.TextField()
+	comments = models.OneToOne(CommentFeed)
+	
+class SportFeed(Feed)
+	feed = models.OneToOneField(Sport)
+
+
+
+

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    <!-- Athletes -->
+                    
+                    <!--
+                    <div id="temp" style="" width="100%">
+                        <script type="text/javascript" src="http://www.athletes.theathletesunited.com/js"></script>
+                    </div>
+                    
+                    <br>
+                    -->
+                    
+                    The plans are that this Athletes home page would list what is going on in the world of an athlete. Some examples of what this would consist of are: trending topics or events, curated articles or content, and news.
+                    <br><br>
+                    <br><br>
+                    
+                    <center>
+                    <img src="{{ STATIC_URL }}images/Athletes.jpg" style="" width="50%">
+                    </center>
+
+                    <br><br>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+

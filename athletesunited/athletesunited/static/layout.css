@@ -1,0 +1,333 @@
+/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    background-color: #000000;
+    /* background-image:url('images/furley.png'); */
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/** END CSS RESET **/
+
+
+
+
+/*====================*/
+/*== AU Core Tweaks ==*/
+/*====================*/
+html, body {
+    line-height: 100%;
+}
+
+html, body, #doc, #page-outer{
+    height:100%;
+}
+
+body, label, input, textarea, select, button {
+    font-family: "Helvetica Neue",Arial,sans-serif;
+}
+
+body {
+    color: #333;
+    font-size: 14px;
+    line-height: 18px;
+    overflow-y:scroll;
+}
+
+.topbar {
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+    height:41px;
+    z-index:1000;
+    -webkit-box-shadow:0 2px 3px rgba(0,0,0,.25);
+    box-shadow:0 2px 3px rgba(0,0,0,.25);
+}
+
+.pull-right {
+    float:right;
+    text-align:left
+}
+
+a {
+    color:#0084b4;text-decoration:none;
+}
+
+.clear
+{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+
+
+
+
+#banners {
+    width:auto;
+}
+
+@media screen and (max-width:865px) {
+    .global-nav .container
+    {
+        width:auto;
+        min-width:520px;
+    }
+}
+
+.container {
+    position:relative;
+    width:837px;
+    margin:0 auto;
+}
+
+
+
+
+
+
+
+
+.global-nav .search-form {
+    position: relative;
+    float: right;
+    margin: 6px 0 0;
+}
+
+.global-nav .search-form form {
+    margin: 0;
+    display: inline;
+}
+
+.global-nav .search-form .controls {
+    position: relative;
+}
+
+.global-nav .search-form .search-form-submit {
+    display: block;
+    position: absolute;
+    top: 7px;
+    right: 8px;
+    content: '';
+    height: 13px;
+    width: 13px;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    padding: 0;
+    margin: 0;
+    text-transform: capitalize;
+    zfont-size: 1px;
+    color: transparent;
+    text-indent: -2000px;
+    overflow: hidden;
+    background: url(https://business.twitter.com/sites/all/themes/gazebo/img/sprite.png) -30px -76px no-repeat transparent;
+    cursor: pointer;
+}
+
+.global-nav .search-form input{
+    line-height: normal;
+    height: auto;
+    font-size: 12px;
+    margin: 0;
+    padding: 6px 28px 5px 12px;
+    width: 150px;
+    border-color: #e0e0e0;
+    box-shadow: inset 0 1px 1px #aaa;
+    -moz-box-shadow: inset 0 1px 1px #aaa;
+    -webkit-box-shadow: inset 0 1px 1px #aaa;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -webkit-appearance: none;
+}
+
+a.context-block {
+    display: none !important;
+}
+
+.element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
+    overflow: hidden;
+    height: 1px;
+}
+
+.global-nav [role=navigation],.nav,.nav>li{float:left}
+
+.topbar-tweet-btn{float:left;margin-right:13px}
+
+.nav{text-align:left}.nav li{position:relative;padding-left: 35px}.nav li a{position:relative;font-size:14px}.nav>li>a{display:block;height:12px;padding:13px 0px 15px;font-weight:bold;line-height:1;color:#333;}
+
+.topbar-divider{background-position:-240px -50px;width:2px;height:32px}
+
+.global-nav [role=search]{float:left}
+
+
+.global-nav{
+    background-position:0 0;background-color:#FFF;
+}
+
+.global-nav,.global-nav-inner{
+    height:41px;background:#fff;
+}
+
+.global-nav{
+    position:relative;width:100%;
+}
+
+.global-nav .container{
+    width:865px;
+}
+
+
+
+.global-nav .search-form .control-group {
+    margin: 0;
+}
+
+/*=============*/
+/*== Content ==*/
+/*=============*/
+
+.wrapper {
+    position:relative;
+    width:837px;
+    min-height:100%;
+    padding:54px 14px 15px;
+    margin:0 auto;
+    padding-bottom:0;
+}
+
+.wrapper.white {
+    /*background: url(https://abs.twimg.com/a/1377795275/t1/img/wash-white-30.png);*/
+    background: #404040;
+}
+
+.content-main {
+    border-radius:6px;
+    float:left;
+    width:100%;
+}
+
+.main-content {
+    border-radius:6px;
+    float:left;
+    width:577px;
+}
+
+.side-content {
+    float:right;
+    width:245px;
+}
+
+.content-header {
+    border:1px solid #eee;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:6px;
+    background-clip:padding-box;
+    border-bottom-width:0;
+    margin-bottom:14px;
+}
+
+.content-header .content-inner {
+    min-height:20px;
+    padding:12px;
+    background-color:#fff;
+    border-bottom:1px solid #e8e8e8;
+    border-radius:5px 5px 5px 5px;
+}
+
+/*=================*/
+/*== Footer Main ==*/
+/*=================*/
+
+.footer-main {
+    float:left;
+    width:100%;
+}
+
+.footer-header {
+    background-clip:padding-box;
+    border-bottom-width:0;
+    margin-bottom:14px;
+}
+
+.footer-header .footer-inner {
+    min-height:20px;
+    padding:12px;
+    color: #fff;
+    font-size:14px;
+    text-align: center;
+}
+
+/*=================*/
+/*== Footer Side ==*/
+/*=================*/
+
+.footer-header-side {
+    border:1px solid #eee;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:6px;
+    background-clip:padding-box;
+    border-bottom-width:0;
+    margin-bottom:14px;
+}
+
+.footer-header-side .footer-inner-side {
+    min-height:20px;
+    padding:12px;
+    background-color:#fff;
+    font-size:12px;
+    border-bottom:1px solid #e8e8e8;
+    border-radius:5px 5px 5px 5px;
+}
+

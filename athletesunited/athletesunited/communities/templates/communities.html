@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+{% load staticfiles %}
+{% load comments %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    <!-- Communities -->
+                    {% if Communities %}
+                    
+                        Athletes United offers the following topic based communities:
+                        
+                        <br>
+                        
+                        {% for Community in Communities %}
+                        
+                            <br>
+                            {% if SelectedAthlete %}
+                                <a href="{% url 'communities.views.CommunityCityPostPage' Community.slug SelectedAthlete.current_city.slug %}">{{ Community.name }}</a>
+                            {% else %}
+                            {% endif %}
+                            <br>
+                            {{ Community.description }}
+                            <br>
+
+                        {% endfor %}
+                    {% else %}
+                        {{ CommunitiesError }}
+                    {% endif %}
+                    
+                    <br><br>
+                    
+                    Athletes United offers the following location based communities:
+                    
+                    <br><br>
+                    <a href="{% url 'communities.views.CityCommunities' %}">Cities</a>
+                    
+                    <br><br>
+                    
+                    Check out your:
+                    
+                    <br><br>
+                    
+                    <a href="{% url 'communities.views.CommunityMyConversations' %}">My Conversations</a>
+                    
+                    <br><br>
+                    <div ng-app="CommunityApp">
+                        <div ng-controller="MainController">
+                            <div infinite-scroll='communityposts.loadmore()' infinite-scroll-disabled='communityposts.busy' infinite-scroll-distance='1'>
+                                {% verbatim %}
+                                <div ng-repeat="communitypost in communityposts.items">
+                                    {{ communitypost.body }}
+                                </div>
+                                {% endverbatim %}
+                                <div ng-show='communityposts.busy'>Loading data...</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Modules -->
+                        <script src="{% static "angularjs/ng-infinite-scroll.min.js" %}"></script>
+                        <script src="{% static "angularjs/app.js" %}"></script>
+                        
+                        <!-- Controllers -->
+                        <script src="{% static "angularjs/controllers/MainController.js" %}"></script>
+                        
+                        <!-- Services -->
+                        <script src="{% static "angularjs/services/CommunityPosts.js" %}"></script>
+                        
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+

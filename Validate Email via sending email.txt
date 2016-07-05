@@ -1,0 +1,3 @@
+https://bitbucket.org/ubernostrum/django-registration/src/d36a38202ee3?at=default
+
+http://stackoverflow.com/questions/14179629/validate-custom-email-domains-with-django-registration

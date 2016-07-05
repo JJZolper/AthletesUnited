@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+{% load comments %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    <!-- Cities -->
+                    {% if Cities %}
+                    
+                        Athletes United offers the following city communities:
+                        
+                        <br>
+                        
+                        {% for City in Cities %}
+                        
+                            <br>
+                            <a href="{% url 'communities-views-CityCommunityPostPage' City.slug %}">{{ City.name }}</a>
+                            <br>
+
+                        {% endfor %}
+                    {% else %}
+                        {{ CitiesError }}
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+

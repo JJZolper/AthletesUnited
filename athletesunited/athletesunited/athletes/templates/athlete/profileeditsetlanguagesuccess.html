@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+    <!-- Fix CSS for Datepicker -->
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript" ></script>
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="content-main">
+            <div class="content-header">
+                <div class="content-inner">
+                
+                    Success!
+
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% for language in languages %}
+                    {% if language.code == SelectedLanguageCode %}You have now set your language to: {{ language.name_local }}.{% endif %}
+                    {% endfor %}
+                    
+                    <br><br>
+                    
+                    Go back to <a href="/profile/edit/">editing your profile</a>.
+
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-main">
+            <div class="footer-header">
+                <div class="footer-inner">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+

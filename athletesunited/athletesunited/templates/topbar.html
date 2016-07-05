@@ -1,0 +1,74 @@
+
+<div class="topbar">
+    <!-- Banners is probably Twitters way of me doing Django messages/alerts -->
+    <div id="banners">
+    </div>
+    <div class="global-nav">
+        <div class="global-nav-inner">
+            <div class="container">
+                <div role="navigation">
+                    <ul class="nav" id="global-actions">
+                    <li>
+                        <a href="/" title="Home">
+                            <img src="{{ STATIC_URL }}images/AULogoHome2.jpg" style="margin-top: -10px;" height="35">
+                                </a>
+                    </li>
+                    <li>
+                        <a href="/athletes" title="Athletes">
+                            Athletes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/communities" title="Communities">
+                            Communities
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/store" title="Store">
+                            Store
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+                
+                <div class="pull-right">
+                    
+                    {% if user.is_authenticated %}
+                    
+                        <div class="search" style="float: left; margin-right: 37px;">
+                            
+                            {% include "search.html" %}
+                            
+                        </div>
+                    
+                    {% endif %}
+                
+                    <div role="complementary" class="topbar-tweet-btn" style="margin-right: 40px; margin-top: 5px;">
+                        
+                        {% if user.is_authenticated %}
+                        
+                            {% if Uathlete %}
+                            
+                                <a href="/profile/" title="{{ user.get_short_name }}'s Profile"><img src="{{ Uathlete.avatar.url }}" style="height: 30px; width: 30px;"></a>
+                            
+                            {% endif %}
+                        
+                            <a href="/logout" title="Logout"><img src="{{ STATIC_URL }}images/logout.png" style="height: 30px; width: 30px;"></a>
+                            
+                        {% else %}
+                        
+                            <img src="{{ STATIC_URL }}images/no-profile-photo.jpg" style="height: 30px; width: 30px;">
+                        
+                            <a href="/login" title="Login"><img src="{{ STATIC_URL }}images/login.png" style="height: 30px; width: 30px;"></a>
+                            
+                        {% endif %}
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block extraheader %}
+
+    <script src="{{ STATIC_URL }}js/post.js" type="text/javascript" ></script>
+    <script src="{{ STATIC_URL }}js/ajaxcomments.js" type="text/javascript" ></script>
+
+{% endblock %}
+{% block title %}{% trans "Athletes United" %} | {% trans "A Community of Athletes" %}{% endblock %}
+{% block content %}
+
+        <div class="main-content">
+            <div class="content-header">
+                <div class="content-inner">
+
+                    {% if City %}
+
+                        <center>
+                            <a href="{% url 'communities-views-CityCommunityPostPage' City.slug %}">{{ City.name }}</a>
+                        </center>
+
+                    {% else %}
+                        {{ CommunityError }}
+                    {% endif %}
+
+                    <br><br>
+                    
+                    <!-- Show the Community Post From Here -->
+                    
+                    <div class="community-post-form">
+                        
+                        <form action="" name="CommunityPostForm" id="CommunityPostForm" method="post">{% csrf_token %}
+                            
+                            {% for hidden in form.hidden_fields %}
+                            {{ hidden }}
+                            {% endfor %}
+                            {% for field in form.visible_fields %}
+                            {{ field.label }}
+                            {{ field }}
+                            {{ field.help_text }}
+                            {{ field.error }}
+                            <p>
+                            {% endfor %}
+                            
+                            <input type="submit" alt="post" value="Post" />
+                        </form>
+                        
+                    </div>
+                    
+                    {% load activity_tags %}
+                    
+                    {% for activity in activities %}
+                        {% render_activity activity %}
+                    {% endfor %}
+                    
+                </div>
+            </div>
+        </div>
+        <div class="side-content">
+            <div class="content-header">
+                <div class="content-inner">
+                    
+                    Partners of Athletes United
+                    <br>
+                    <br>
+                    
+                </div>
+            </div>
+            <div class="footer-header-side">
+                <div class="footer-inner-side">
+                    
+                    <footer>
+                        {% include "footer.html" %}
+                    </footer>
+                    
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+

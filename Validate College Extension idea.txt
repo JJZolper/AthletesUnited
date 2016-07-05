@@ -1,0 +1,80 @@
+class RegistrationFormNoFreeEmail(RegistrationForm):
+    """
+    Subclass of ``RegistrationForm`` which disallows registration with
+    email addresses from popular free webmail services; moderately
+    useful for preventing automated spam registrations.
+    
+    To change the list of banned domains, subclass this form and
+    override the attribute ``bad_domains``.
+    
+    """
+    bad_domains = ['aim.com', 'aol.com', 'email.com', 'gmail.com',
+                   'googlemail.com', 'hotmail.com', 'hushmail.com',
+                   'msn.com', 'mail.ru', 'mailinator.com', 'live.com',
+                   'yahoo.com']
+    
+    def clean_email(self):
+        """
+        Check the supplied email address against a list of known free
+        webmail domains.
+        
+        """
+        email_domain = self.cleaned_data['email'].split('@')[1]
+        if email_domain in self.bad_domains:
+            raise forms.ValidationError(_("Registration using free email addresses is prohibited. Please supply a different email address."))
+        return self.cleaned_data['email']
+
+
+
+
+
+class CollegeEmailRegistrationForm(RegistrationForm):
+    # college_email_domains = ['vt.edu', 'nd.edu']
+    
+    college_email_domains = []
+
+    def verify_college_email(self):
+        """
+        Check the supplied email address against a list of known college email domains.
+        """
+	# Takes the email entered in the form and splits it and takes the trailing information after the @ sign
+	# So if the supplied email is jjz@vt.edu, then test_email_domain = vt.edu because we grab the second half by indexing at location 1.
+    test_email_domain = self.cleaned_data['email'].split('@')[1]
+	# Now that we have the email domain we want to test for verification we get all the college email domains and sort through to see if there is a match
+	# So below we grab a list of all the college email domains by first grabbing all the college objects
+	All_Colleges = College.objects.all()
+	for Selected_College in All_Colleges
+        college_email_domains.append('' + Selected_College.get_emailext) 		# write a function to get the email ext or domain from the specific college
+            if test_email_domain in college_email_domains:
+            # We know vt.edu is a college domain we accept because we have a VT college group, so return the email they entered
+            # Now after all this finishes out move onto verifying that indeed they have ownership and access to jjz@vt.edu in Part 2.
+            return self.cleaned_data['email']
+        else:
+                raise forms.ValidationError(_("Registration using a non-college email addresses is prohibited. Please supply a college email address."))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

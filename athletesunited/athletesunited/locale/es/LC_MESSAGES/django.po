@@ -1,0 +1,587 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-11 04:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: athletesunited/ad_manager/admin.py:260
+msgid "Mark selected ads as active"
+msgstr ""
+
+#: athletesunited/ad_manager/admin.py:268
+msgid "Mark selected ads as inactive"
+msgstr ""
+
+#: athletesunited/ad_manager/forms.py:44 athletesunited/ad_manager/forms.py:52
+#: athletesunited/ad_manager/models.py:128
+#: athletesunited/ad_manager/models.py:134
+msgid "You may not save a target in itself!"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:47
+msgid "notes"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:47
+msgid "Not published."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:83
+#: athletesunited/ad_manager/models.py:378
+msgid "Short descriptive unique name for use in urls."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:86
+#: athletesunited/ad_manager/models.py:381
+#: athletesunited/ad_manager/models.py:415
+#: athletesunited/ad_manager/models.py:444
+msgid "name"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:86
+msgid "Short descriptive name for this target."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:116
+#: athletesunited/ad_manager/models.py:397
+#: athletesunited/ad_manager/models.py:460
+#, python-format
+msgid "%s"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:212
+msgid "Target parents"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:293
+msgid "ad unit group ID"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:322
+msgid "ad unit ID"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:325
+msgid "expiration date"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:325
+msgid "Leave blank if the ad does not expire."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:326
+msgid "active?"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:326
+msgid "Disables/enables ad for everyone (including super admins)."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:327
+msgid "publish date"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:327
+msgid "The date this ad shall appear online."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:354
+#, python-format
+msgid "%s | %s"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:381
+msgid "Short descriptive name for page type."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:414
+msgid "height"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:415
+msgid "Short descriptive name for this ad type."
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:416
+msgid "width"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:435
+#, python-format
+msgid "%s | %s x %s"
+msgstr ""
+
+#: athletesunited/ad_manager/models.py:444
+msgid ""
+"Ad tag \"type\"; examples: &lt;iframe&gt;, &lt;script&gt;, &lt;img&gt;..."
+msgstr ""
+
+#: athletesunited/ad_manager/views.py:125
+msgid "The target you have requested does not exist."
+msgstr ""
+
+#: athletesunited/ad_manager/views.py:144
+msgid "The ad group you have requested does not exist."
+msgstr ""
+
+#: athletesunited/ad_manager/views.py:163
+msgid "The page type you have requested does not exist."
+msgstr ""
+
+#: athletesunited/ad_manager/views.py:172
+msgid "The ad group and page type you have requested do not exist."
+msgstr ""
+
+#: athletesunited/athletes/models.py:219 athletesunited/colleges/models.py:26
+#: athletesunited/colleges/models.py:56 athletesunited/comments/models.py:55
+#: athletesunited/comments/models.py:165
+#: athletesunited/communities/models.py:42
+#: athletesunited/communities/models.py:65
+msgid "user"
+msgstr ""
+
+#: athletesunited/athletes/models.py:220
+msgid "activation key"
+msgstr ""
+
+#: athletesunited/athletes/models.py:225
+msgid "registration profile"
+msgstr ""
+
+#: athletesunited/athletes/models.py:226
+msgid "registration profiles"
+msgstr ""
+
+#: athletesunited/comments/admin.py:26
+msgid "Content"
+msgstr ""
+
+#: athletesunited/comments/admin.py:29
+msgid "Metadata"
+msgstr ""
+
+#: athletesunited/comments/admin.py:56
+msgid "flagged"
+msgid_plural "flagged"
+msgstr[0] ""
+msgstr[1] ""
+
+#: athletesunited/comments/admin.py:57
+msgid "Flag selected comments"
+msgstr ""
+
+#: athletesunited/comments/admin.py:61
+msgid "approved"
+msgid_plural "approved"
+msgstr[0] ""
+msgstr[1] ""
+
+#: athletesunited/comments/admin.py:62
+msgid "Approve selected comments"
+msgstr ""
+
+#: athletesunited/comments/admin.py:66
+msgid "removed"
+msgid_plural "removed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: athletesunited/comments/admin.py:67
+msgid "Remove selected comments"
+msgstr ""
+
+#: athletesunited/comments/admin.py:79
+#, python-format
+msgid "1 comment was successfully %(action)s."
+msgid_plural "%(count)s comments were successfully %(action)s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: athletesunited/comments/feeds.py:15
+#, python-format
+msgid "%(site_name)s comments"
+msgstr ""
+
+#: athletesunited/comments/feeds.py:21
+#, python-format
+msgid "Latest comments on %(site_name)s"
+msgstr ""
+
+#: athletesunited/comments/forms.py:171
+#, python-format
+msgid "Watch your mouth! The word %s is not allowed here."
+msgid_plural "Watch your mouth! The words %s are not allowed here."
+msgstr[0] ""
+msgstr[1] ""
+
+#: athletesunited/comments/forms.py:175
+msgid "and"
+msgstr ""
+
+#: athletesunited/comments/forms.py:180
+msgid ""
+"If you enter anything in this field your comment will be treated as spam"
+msgstr ""
+
+#: athletesunited/comments/models.py:25
+msgid "content type"
+msgstr ""
+
+#: athletesunited/comments/models.py:27
+msgid "object ID"
+msgstr ""
+
+#: athletesunited/comments/models.py:57
+msgid "user's name"
+msgstr ""
+
+#: athletesunited/comments/models.py:58
+msgid "user's URL"
+msgstr ""
+
+#: athletesunited/comments/models.py:60 athletesunited/comments/models.py:80
+#: athletesunited/comments/models.py:166
+msgid "comment"
+msgstr ""
+
+#: athletesunited/comments/models.py:63
+msgid "date/time submitted"
+msgstr ""
+
+#: athletesunited/comments/models.py:64
+msgid "IP address"
+msgstr ""
+
+#: athletesunited/comments/models.py:65
+msgid "is public"
+msgstr ""
+
+#: athletesunited/comments/models.py:66
+msgid ""
+"Uncheck this box to make the comment effectively disappear from the site."
+msgstr ""
+
+#: athletesunited/comments/models.py:68
+msgid "is removed"
+msgstr ""
+
+#: athletesunited/comments/models.py:69
+msgid ""
+"Check this box if the comment is inappropriate. A \"This comment has been "
+"removed\" message will be displayed instead."
+msgstr ""
+
+#: athletesunited/comments/models.py:81
+msgid "comments"
+msgstr ""
+
+#: athletesunited/comments/models.py:122
+msgid ""
+"This comment was posted by an authenticated user and thus the name is read-"
+"only."
+msgstr ""
+
+#: athletesunited/comments/models.py:148
+#, python-format
+msgid ""
+"Posted by %(user)s at %(date)s\n"
+"\n"
+"%(comment)s\n"
+"\n"
+"http://%(domain)s%(url)s"
+msgstr ""
+
+#: athletesunited/comments/models.py:167
+msgid "flag"
+msgstr ""
+
+#: athletesunited/comments/models.py:168
+msgid "date"
+msgstr ""
+
+#: athletesunited/comments/models.py:178
+msgid "comment flag"
+msgstr ""
+
+#: athletesunited/comments/models.py:179
+msgid "comment flags"
+msgstr ""
+
+#: athletesunited/templates/about.html:7
+#: athletesunited/templates/athlete.html:7
+#: athletesunited/templates/athletelogin.html:7
+#: athletesunited/templates/athleteregistration.html:16
+#: athletesunited/templates/athletes.html:7
+#: athletesunited/templates/college.html:7
+#: athletesunited/templates/colleges.html:7
+#: athletesunited/templates/communities.html:7
+#: athletesunited/templates/communitycity.html:17
+#: athletesunited/templates/communitycountry.html:17
+#: athletesunited/templates/communityworldwide.html:16
+#: athletesunited/templates/createcollegeevent.html:10
+#: athletesunited/templates/editcollegeevent.html:10
+#: athletesunited/templates/index.html:7
+#: athletesunited/templates/mycollegeevents.html:10
+#: athletesunited/templates/partner.html:7
+#: athletesunited/templates/partnerapplication.html:7
+#: athletesunited/templates/partners.html:7
+#: athletesunited/templates/profile.html:7
+#: athletesunited/templates/profileedit.html:16
+#: athletesunited/templates/profileeditsetlanguagesuccess.html:10
+#: athletesunited/templates/search_results.html:7
+#: athletesunited/templates/store.html:7
+#: athletesunited/templates/teammember.html:7
+#: athletesunited/templates/viewcollegeevent.html:10
+msgid "Athletes United"
+msgstr "Los atletas Estados"
+
+#: athletesunited/templates/about.html:7
+#: athletesunited/templates/athlete.html:7
+#: athletesunited/templates/athletelogin.html:7
+#: athletesunited/templates/athleteregistration.html:16
+#: athletesunited/templates/athletes.html:7
+#: athletesunited/templates/college.html:7
+#: athletesunited/templates/colleges.html:7
+#: athletesunited/templates/communities.html:7
+#: athletesunited/templates/communitycity.html:17
+#: athletesunited/templates/communitycountry.html:17
+#: athletesunited/templates/communityworldwide.html:16
+#: athletesunited/templates/createcollegeevent.html:10
+#: athletesunited/templates/editcollegeevent.html:10
+#: athletesunited/templates/index.html:7
+#: athletesunited/templates/mycollegeevents.html:10
+#: athletesunited/templates/partner.html:7
+#: athletesunited/templates/partnerapplication.html:7
+#: athletesunited/templates/partners.html:7
+#: athletesunited/templates/profile.html:7
+#: athletesunited/templates/profileedit.html:16
+#: athletesunited/templates/profileeditsetlanguagesuccess.html:10
+#: athletesunited/templates/search_results.html:7
+#: athletesunited/templates/store.html:7
+#: athletesunited/templates/teammember.html:7
+#: athletesunited/templates/viewcollegeevent.html:10
+msgid "A Community of Athletes"
+msgstr "Una Comunidad de Atletas"
+
+#: athletesunited/templates/comments/approve.html:4
+msgid "Approve a comment"
+msgstr ""
+
+#: athletesunited/templates/comments/approve.html:7
+msgid "Really make this comment public?"
+msgstr ""
+
+#: athletesunited/templates/comments/approve.html:12
+msgid "Approve"
+msgstr ""
+
+#: athletesunited/templates/comments/approved.html:4
+msgid "Thanks for approving"
+msgstr ""
+
+#: athletesunited/templates/comments/approved.html:7
+#: athletesunited/templates/comments/deleted.html:7
+#: athletesunited/templates/comments/flagged.html:7
+msgid ""
+"Thanks for taking the time to improve the quality of discussion on our site"
+msgstr ""
+
+#: athletesunited/templates/comments/comment.html:21
+msgid "Preview of your comment"
+msgstr ""
+
+#: athletesunited/templates/comments/comment.html:24
+msgid "Anonymous"
+msgstr ""
+
+#: athletesunited/templates/comments/comment.html:27
+#, python-format
+msgid "on %(submit_date)s"
+msgstr ""
+
+#: athletesunited/templates/comments/comment.html:28
+msgid "moderated"
+msgstr ""
+
+#: athletesunited/templates/comments/comment.html:29
+msgid "reply"
+msgstr ""
+
+#: athletesunited/templates/comments/delete.html:4
+msgid "Remove a comment"
+msgstr ""
+
+#: athletesunited/templates/comments/delete.html:7
+msgid "Really remove this comment?"
+msgstr ""
+
+#: athletesunited/templates/comments/delete.html:12
+msgid "Remove"
+msgstr ""
+
+#: athletesunited/templates/comments/deleted.html:4
+msgid "Thanks for removing"
+msgstr ""
+
+#: athletesunited/templates/comments/flag.html:4
+msgid "Flag this comment"
+msgstr ""
+
+#: athletesunited/templates/comments/flag.html:7
+msgid "Really flag this comment?"
+msgstr ""
+
+#: athletesunited/templates/comments/flag.html:12
+msgid "Flag"
+msgstr ""
+
+#: athletesunited/templates/comments/flagged.html:4
+msgid "Thanks for flagging"
+msgstr ""
+
+#: athletesunited/templates/comments/form.html:4
+msgid "Comments are closed."
+msgstr ""
+
+#: athletesunited/templates/comments/form.html:13
+msgid "Post"
+msgstr ""
+
+#: athletesunited/templates/comments/form.html:14
+msgid "Preview"
+msgstr ""
+
+#: athletesunited/templates/comments/posted.html:4
+msgid "Thanks for commenting"
+msgstr ""
+
+#: athletesunited/templates/comments/posted.html:7
+msgid "Thank you for your comment"
+msgstr ""
+
+#: athletesunited/templates/fluent_comments/templatetags/ajax_comment_tags.html:3
+msgid "Please wait . . ."
+msgstr ""
+
+#: athletesunited/templates/fluent_comments/templatetags/ajax_comment_tags.html:5
+msgid "Your comment has been posted!"
+msgstr ""
+
+#: athletesunited/templates/fluent_comments/templatetags/ajax_comment_tags.html:6
+msgid ""
+"Your comment has been posted, it will be visible for other users after "
+"approval."
+msgstr ""
+
+#: athletesunited/templates/registration/activate.html:8
+msgid "Account successfully activated"
+msgstr ""
+
+#: athletesunited/templates/registration/activate.html:10
+#: athletesunited/templates/registration/login.html:9
+msgid "Log in"
+msgstr ""
+
+#: athletesunited/templates/registration/activate.html:14
+msgid "Account activation failed"
+msgstr ""
+
+#: athletesunited/templates/registration/activation_complete.html:14
+msgid "Your account is now activated."
+msgstr ""
+
+#: athletesunited/templates/registration/activation_email.txt:2
+msgid "Activate account at"
+msgstr ""
+
+#: athletesunited/templates/registration/activation_email.txt:6
+#, python-format
+msgid "Link is valid for %(expiration_days)s days."
+msgstr ""
+
+#: athletesunited/templates/registration/activation_email_subject.txt:1
+msgid "Account activation on"
+msgstr ""
+
+#: athletesunited/templates/registration/login.html:13
+msgid "Forgot password"
+msgstr ""
+
+#: athletesunited/templates/registration/login.html:13
+msgid "Reset it"
+msgstr ""
+
+#: athletesunited/templates/registration/login.html:14
+msgid "Not member"
+msgstr ""
+
+#: athletesunited/templates/registration/login.html:14
+msgid "Register"
+msgstr ""
+
+#: athletesunited/templates/registration/logout.html:5
+msgid "Logged out"
+msgstr ""
+
+#: athletesunited/templates/registration/password_change_done.html:10
+msgid "Password changed"
+msgstr ""
+
+#: athletesunited/templates/registration/password_change_done.html:12
+msgid "profile"
+msgstr ""
+
+#: athletesunited/templates/registration/password_change_form.html:14
+#: athletesunited/templates/registration/password_reset_confirm.html:16
+#: athletesunited/templates/registration/password_reset_form.html:14
+#: athletesunited/templates/registration/registration_form.html:9
+msgid "Submit"
+msgstr ""
+
+#: athletesunited/templates/registration/password_reset_complete.html:10
+msgid "Password reset successfully"
+msgstr ""
+
+#: athletesunited/templates/registration/password_reset_complete.html:12
+msgid "login"
+msgstr ""
+
+#: athletesunited/templates/registration/password_reset_confirm.html:21
+msgid "Password reset failed"
+msgstr ""
+
+#: athletesunited/templates/registration/password_reset_done.html:11
+msgid "Email with password reset instructions has been sent."
+msgstr ""
+
+#: athletesunited/templates/registration/password_reset_email.html:2
+#, python-format
+msgid "Reset password at %(site_name)s"
+msgstr ""
+
+#: athletesunited/templates/registration/registration_complete.html:14
+msgid ""
+"Success! You are now registered. Your account activation email has been sent."
+msgstr ""
+
+#: athletesunited/templates/registration/registration_complete.html:16
+msgid "Please go to your e-mail and click the activation link."
+msgstr ""
+
+#: athletesunited/templates/registration/registration_complete.html:18
+msgid "Then you may begin interacting with Athletes United."
+msgstr ""
